@@ -1,0 +1,38 @@
+{
+  "name": "pes-to",
+  "version": "1.0.0",
+  "description": "«Πες το» - Ιστότοπος προτάσεων και ψηφοφοριών του δεκαπενταμελούς συμβουλίου",
+  "private": true,
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch server.js",
+    "setup-owner": "node --disable-warning=ExperimentalWarning scripts/setup-owner.js",
+    "reset-password": "node --disable-warning=ExperimentalWarning scripts/reset-password.js",
+    "test": "node --disable-warning=ExperimentalWarning scripts/integration-test.js",
+    "backup": "node --disable-warning=ExperimentalWarning scripts/backup-data.js",
+    "backup-cloud": "node --disable-warning=ExperimentalWarning --env-file-if-exists=.env.cloud scripts/backup-cloud.js",
+    "migrate-cloud": "node --disable-warning=ExperimentalWarning --env-file-if-exists=.env.cloud scripts/migrate-to-postgres.js",
+    "migrate-uploads": "node --disable-warning=ExperimentalWarning --env-file-if-exists=.env.cloud scripts/migrate-to-postgres.js --uploads-only",
+    "qr": "node scripts/generate-qr.js",
+    "start:cloud": "node --disable-warning=ExperimentalWarning --env-file-if-exists=.env.cloud server.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "express": "^5.3.0",
+    "multer": "^2.4.0",
+    "pg": "^8.23.1",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.11",
+    "@electric-sql/pglite-socket": "^0.2.14",
+    "jsqr": "^1.4.0",
+    "pngjs": "^7.0.0",
+    "qrcode": "^1.5.4"
+  }
+}

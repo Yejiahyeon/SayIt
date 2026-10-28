@@ -1,0 +1,10 @@
+data/
+uploads/
+backups/
+node_modules/
+*.db
+*.db-shm
+*.db-wal
+secret.key
+.env
+.env.*
